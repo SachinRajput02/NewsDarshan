@@ -14,14 +14,17 @@
 /* When "active" is toggled, make elements visible */
 .active {
   display: block !important;
+  margin-bottom: 20px;
 
 
 }
 .displayflex{
   display: flex;
+  gap: 30px;
+  align-items: center;
   
 }
-.navbar{
+.navbar1{
   /* width: 100%; */
   background-color: #343a40;
   padding: 0.7% 3%;
@@ -31,14 +34,14 @@
   justify-content: space-between;
   align-items: center;
 }
-.navbar-title{
+.navbar1-title{
   font-size: 1.5em;
   font-weight: 500;
   color: #ffffff;
   padding-left: 2%;
 }
 
-.navbar-menu{
+.navbar1-menu{
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -79,11 +82,11 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
-.search-signin-darkmode{
-  display: flex;
-  gap: 20px;
+/* .gap{
+  display: flex !important ;
+  gap: 600px !important;
   align-items: center;
-}
+} */
 .form-for-search{
   display: flex;
   justify-content: center;
@@ -105,17 +108,19 @@
   color: #ffffff;
   cursor: pointer;
 }
-.sign-in-button{
-  padding: 7px 15px;
+.sign-in-button{  
+  
+  height: 40px;
   border-radius: 20px;
   border: 1px solid #ced4da;
   background-color: #007bff;
   color: #ffffff;
   cursor: pointer;
 }
+
 .mode-valid{
   display: block;
-  width: 50%;
+  width: 50px;
   padding-top: 10px;
   padding-bottom: 10px;
   
@@ -124,7 +129,7 @@
 .mode-invalid{
   display: none;
 }
-.navbar-toggler{
+.navbar1-toggler{
   display: none;
   cursor: pointer;
   
@@ -140,10 +145,12 @@
 
 /* Mobile (default styles) */
 @media (max-width: 450px) {
-  .navbar-menu{
+  .navbar1-menu{
     display: none;
+    gap: 10px;
   }
-  .navbar{
+  
+  .navbar1{
     
     background-color: #343a40;
     padding: 3% 3%;
@@ -151,9 +158,9 @@
   .sign-in-button{
     display: none;
   }
-  .navbar-toggler{
+  /* .navbar1-toggler{
     display: block;
-  }
+  } */
   .displayflex{
     display: none;
   }
@@ -161,22 +168,89 @@
 
 /* Tablets */
 @media (max-width: 768px) {
-  .navbar-menu{
+  .navbar1-menu{
     display: none;
   }
    
   .form-for-search{
     display: none;
   }
-  .navbar-toggler{
+  .navbar1-toggler{
     display: block;
   }
-  .mode-valid{
+  /* .mode-valid{
     display: none;
-  }
+  } */
 }
 
 /* Laptops
 @media (max-width: 1024px) {
   
 } */
+
+
+
+/* Navbar2 css */
+/* Navbar Styles */
+.navbar2 {
+  width: 100%;
+  background-color: white;
+  border-bottom: 2px solid blue;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Scrollable container */
+.nav-container2 {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.nav-container2::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navbar Items */
+.nav-item2 {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 15px;
+  position: relative;
+}
+
+/* Dropdown Menu */
+.dropdown2 {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  top: 100%;
+  left: 0;
+}
+.nav-item2:focus .dropdown2 {
+  display: block;
+  
+
+
+} 
+
+.dropdown2 a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown2 a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.nav-item2:hover .dropdown2 {
+  display: block;
+}
