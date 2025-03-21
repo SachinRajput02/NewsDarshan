@@ -11,6 +11,16 @@
   color: #d4dadf;
 }
 
+/* When "active" is toggled, make elements visible */
+.active {
+  display: block !important;
+
+
+}
+.displayflex{
+  display: flex;
+  
+}
 .navbar{
   /* width: 100%; */
   background-color: #343a40;
@@ -69,6 +79,11 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
+.search-signin-darkmode{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
 .form-for-search{
   display: flex;
   justify-content: center;
@@ -112,6 +127,7 @@
 .navbar-toggler{
   display: none;
   cursor: pointer;
+  
   width: 50px;
   padding: 4px 4px;
   border-radius: 5px;
@@ -137,6 +153,9 @@
   }
   .navbar-toggler{
     display: block;
+  }
+  .displayflex{
+    display: none;
   }
 }
 
