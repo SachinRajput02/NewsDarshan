@@ -43,7 +43,7 @@ export default function Navbar(props) {
           <input className="form-for-search-input" type="search"  placeholder="Search" aria-label="Search"/>
           <button className="form-for-search-button" type="search">Search</button>
         </form>
-        <button type='submit'>Sign-in</button>
+        <button className='sign-in-button' type='submit'>Sign-in</button>
         <div className={`form-for-darkmode-lightmode text-${props.Mode==='light'?'dark':'light'}`} >
           <img className={`mode-${props.Mode==='light'?'valid':'invalid'}`} onClick={props.toggleMode} src={darkmodeicon} alt="" />
           <img className={`mode-${props.Mode!='light'?'valid':'invalid'}`} onClick={props.toggleMode} src={lightmodeicon} alt="" />

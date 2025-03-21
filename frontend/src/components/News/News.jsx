@@ -21,9 +21,9 @@ const News = (props) => {
     // const url2= 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=030e772ccee44f47a39c89db287c7c5f&page=1&pageSize=5';
     // const url2 = `https://newsapi.org/v2/everything?q=apple&from=2025-03-08&to=2025-03-08&sortBy=popularity&apiKey=${props.apiKey}`;
 
-    // const url2 = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
-    const url2 = `https://newsdarshan-backend.onrender.com/news?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
-    setLoading(true);
+    const url2 = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
+    // const url2 = `https://newsdarshan-backend.onrender.com/news?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
+    // setLoading(true);
     let data = await fetch(url2);
     props.setProgress(30);
     let parsedData = await data.json();
@@ -64,7 +64,7 @@ const News = (props) => {
       <h1
         className="headline-heading"
       >
-        NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines
+        NewsDarshan-Top {capitalizeFirstLetter(props.category)} Headlines
       </h1>
       {loading && <Spinner />}
 
@@ -86,7 +86,7 @@ const News = (props) => {
                 >
                   <NewsItem
                     title={element.title || "No Title Available"}
-                    description={element.description || "No Description"}
+                    description={element.description }
                     imageUrl={
                       element.urlToImage || "https://via.placeholder.com/150"
                     }

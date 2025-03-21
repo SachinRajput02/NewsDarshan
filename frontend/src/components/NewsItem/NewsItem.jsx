@@ -14,9 +14,9 @@ const NewsItem=(props)=>{
             className="card-img-top"
             alt="..."
           />
-          <div className="card-body">
+          <div className="card-body ">
             <h5 className="card-title">{title ? title : ""}</h5>
-            <p className="card-text">{description ? description : ""}</p>
+            <p className="card-text truncate">{description ? description+description : title+title}</p>
             <div className="text-center">
               <a
                 href={newsUrl ? newsUrl : ""}

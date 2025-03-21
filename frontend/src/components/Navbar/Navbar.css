@@ -90,6 +90,14 @@
   color: #ffffff;
   cursor: pointer;
 }
+.sign-in-button{
+  padding: 7px 15px;
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+  background-color: #007bff;
+  color: #ffffff;
+  cursor: pointer;
+}
 .mode-valid{
   display: block;
   width: 50%;
@@ -103,4 +111,53 @@
 }
 .navbar-toggler{
   display: none;
+  cursor: pointer;
+  width: 50px;
+  padding: 4px 4px;
+  border-radius: 5px;
+  background-color:#343a40 ;
+  color: #ffffff;
+  
 }
+
+/* responsive-design */
+
+/* Mobile (default styles) */
+@media (max-width: 450px) {
+  .navbar-menu{
+    display: none;
+  }
+  .navbar{
+    
+    background-color: #343a40;
+    padding: 3% 3%;
+  }
+  .sign-in-button{
+    display: none;
+  }
+  .navbar-toggler{
+    display: block;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .navbar-menu{
+    display: none;
+  }
+   
+  .form-for-search{
+    display: none;
+  }
+  .navbar-toggler{
+    display: block;
+  }
+  .mode-valid{
+    display: none;
+  }
+}
+
+/* Laptops
+@media (max-width: 1024px) {
+  
+} */
