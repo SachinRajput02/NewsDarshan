@@ -88,14 +88,14 @@ export default function Navbar(props) {
                 </a>
               </li>
               <li className="category-dropdown">
-                <li
+                <ul
                   className={`nav-link  text-${
                     props.Mode === "light" ? "dark" : "light"
                   }`}
                   role="button"
                 >
                   Category
-                </li>
+                </ul>
                 <ul className={`dropdown-menu bg-${props.Mode}`}>
                   <li>
                     <Link
@@ -222,45 +222,89 @@ export default function Navbar(props) {
           </button>
         </div>
       </nav>
-      <nav className="navbar2">
-        <div className="nav-container2">
+      <nav className={`navbar2 bg-${props.Mode} `}>
+        <div className={`nav-container2 bg-${props.Mode} `}>
+        
           <div className="nav-item2">
-            TVs & Appliances ▼
+          <Link
+                      className={`dropdown-item  text-${
+                        props.Mode !== "light" ? "black" : "white"
+                      }`}
+                      to="/general"
+                    >
+                      General ▼
+                    </Link>
+            
             <div className="dropdown2">
               <a href="#">Smart TVs</a>
               <a href="#">Washing Machines</a>
             </div>
           </div>
           <div className="nav-item2">
-            Men ▼
+          <Link
+                      className={`dropdown-item bg-${props.Mode} text-${
+                        props.Mode !== "light" ? "black" : "white"
+                      }`}
+                      to="/entertainment"
+                    >
+                      Entertainment ▼
+                    </Link>
             <div className="dropdown2">
               <a href="#">Shirts</a>
               <a href="#">Shoes</a>
             </div>
           </div>
           <div className="nav-item2">
-            Women ▼
+          <Link
+                      className={`dropdown-item bg-${props.Mode} text-${
+                        props.Mode !== "light" ? "black" : "white"
+                      }`}
+                      to="/health"
+                    >
+                      Health ▼
+                    </Link>
             <div className="dropdown2">
               <a href="#">Dresses</a>
               <a href="#">Jewelry</a>
             </div>
           </div>
           <div className="nav-item2">
-            Baby & Kids ▼
+          <Link
+                      className={`dropdown-item bg-${props.Mode} text-${
+                        props.Mode !== "light" ? "black" : "white"
+                      }`}
+                      to="/science"
+                    >
+                      Science ▼
+                    </Link>
             <div className="dropdown2">
               <a href="#">Toys</a>
               <a href="#">Clothes</a>
             </div>
           </div>
           <div className="nav-item2">
-            Home & Furniture ▼
+          <Link
+                      className={`dropdown-item bg-${props.Mode} text-${
+                        props.Mode !== "light" ? "black" : "white"
+                      }`}
+                      to="/sports"
+                    >
+                      Sports ▼
+                    </Link>
             <div className="dropdown2">
               <a href="#">Sofas</a>
               <a href="#">Beds</a>
             </div>
           </div>
           <div className="nav-item2">
-            Sports, Books & More ▼
+          <Link
+                      className={`dropdown-item bg-${props.Mode} text-${
+                        props.Mode !== "light" ? "black" : "white"
+                      }`}
+                      to="/technology"
+                    >
+                      Technology ▼
+                    </Link>
             <div className="dropdown2">
               <a href="#">Cricket</a>
               <a href="#">Novels</a>

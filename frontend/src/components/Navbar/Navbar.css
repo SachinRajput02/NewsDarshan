@@ -10,6 +10,9 @@
 .text-light{
   color: #d4dadf;
 }
+.bg-light{
+  background-color: black;
+}
 
 /* When "active" is toggled, make elements visible */
 .active {

@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import NewsItem from "../NewsItem/NewsItem";
 import Spinner from "../Spinner/Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "./News.css";
+import axios from "axios";
+import { StoreContext } from "../context/StoreContext";
+
+
 
 const News = (props) => {
+  const {url}=useContext(StoreContext)
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -17,22 +22,28 @@ const News = (props) => {
 
   const updateNews = async () => {
     props.setProgress(10);
-    // const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
-    // const url2= 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=030e772ccee44f47a39c89db287c7c5f&page=1&pageSize=5';
+
+    const response = await axios.get(`${url}/api/news/newsapinews`, {
+      params: {
+          country: props.country,
+          category: props.category,
+          page: page,
+          pageSize: props.pageSize,
+          apiKey: props.apiKey
+      }
+  });
+
     // const url2 = `https://newsapi.org/v2/everything?q=apple&from=2025-03-08&to=2025-03-08&sortBy=popularity&apiKey=${props.apiKey}`;
 
-    // const url2 = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
-    const url2 = `https://newsdarshan-backend.onrender.com/news?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
-    // setLoading(true);
-    let data = await fetch(url2);
-    props.setProgress(30);
-    let parsedData = await data.json();
-    props.setProgress(70);
 
-    if (parsedData.articles) {
+    // const url2 = `http://localhost:5000/api/news/newsapinews?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
+    setLoading(true);
+    props.setProgress(30);
+
+    if (response.data.articles) {
       // ✅ Ensure articles exist before updating state
-      setArticles(parsedData.articles);
-      setTotalResults(parsedData.totalResults);
+      setArticles(response.data.articles);
+      setTotalResults(response.data.totalResults);
     } else {
       console.log("No articles found");
       setArticles([]); // ✅ Prevents undefined state
@@ -46,18 +57,38 @@ const News = (props) => {
   useEffect(() => {
     const fetchNews = async () => {
       await updateNews();
+      
     };
     fetchNews();
   }, [props.country, props.category, props.apiKey, props.pageSize]); // ✅ Runs only when category changes
 
   const fetchMoreData = async () => {
     setPage(page + 1); // ✅ Increment page number
-    const url2 = `https://newsdarshan-backend.onrender.com/news?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=1&pageSize=${props.pageSize}`;
-    let data = await fetch(url2);
-    let parsedData = await data.json();
-    setArticles(articles.concat(parsedData.articles));
-    setTotalResults(parsedData.totalResults);
-  };
+
+    try {
+        const response = await axios.get(`${url}/api/news/newsapinews`, {
+            params: {
+                country: props.country,
+                category: props.category,
+                apiKey: props.apiKey,
+                page: page,
+                pageSize: props.pageSize
+            }
+        });
+
+        let parsedData = response.data;
+
+        if (parsedData.articles) {
+            setArticles(articles.concat(parsedData.articles)); // ✅ Append new articles
+            setTotalResults(parsedData.totalResults);
+        } else {
+            console.log("No more articles found");
+        }
+
+    } catch (error) {
+        console.error("Error fetching more news:", error);
+    }
+};
 
   return (
     <>
