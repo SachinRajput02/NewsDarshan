@@ -8,7 +8,7 @@ import StoreContextProvider from '../../components/context/StoreContext';
 
 const Home = () => {
   const apiKey = (import.meta.env.REACT_APP_NEWS_API)||'030e772ccee44f47a39c89db287c7c5f';
-  const pageSize = 10;
+  const pageSize = 3;
   const [progress, setProgress] = useState(0);
 
   return (
