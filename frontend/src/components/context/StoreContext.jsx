@@ -6,6 +6,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const url ="https://newsdarshan-backend.onrender.com";
+  // const url ="http://localhost:5000";
   const contextValue = {
     url
 

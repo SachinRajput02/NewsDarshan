@@ -84,80 +84,18 @@ export default function Navbar(props) {
                   }`}
                   href="/"
                 >
-                  Link
+                  ToDo 1
                 </a>
               </li>
               <li className="category-dropdown">
-                <ul
+                <a
                   className={`nav-link  text-${
                     props.Mode === "light" ? "dark" : "light"
                   }`}
                   role="button"
                 >
-                  Category
-                </ul>
-                <ul className={`dropdown-menu bg-${props.Mode}`}>
-                  <li>
-                    <Link
-                      className={`dropdown-item bg-${props.Mode} text-${
-                        props.Mode === "light" ? "black" : "white"
-                      }`}
-                      to="/general"
-                    >
-                      General
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className={`dropdown-item bg-${props.Mode} text-${
-                        props.Mode === "light" ? "black" : "white"
-                      }`}
-                      to="/entertainment"
-                    >
-                      Entertainment
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className={`dropdown-item bg-${props.Mode} text-${
-                        props.Mode === "light" ? "black" : "white"
-                      }`}
-                      to="/health"
-                    >
-                      Health
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className={`dropdown-item bg-${props.Mode} text-${
-                        props.Mode === "light" ? "black" : "white"
-                      }`}
-                      to="/science"
-                    >
-                      Science
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className={`dropdown-item bg-${props.Mode} text-${
-                        props.Mode === "light" ? "black" : "white"
-                      }`}
-                      to="/sports"
-                    >
-                      Sports
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className={`dropdown-item bg-${props.Mode} text-${
-                        props.Mode === "light" ? "black" : "white"
-                      }`}
-                      to="/technology"
-                    >
-                      Technology
-                    </Link>
-                  </li>
-                </ul>
+                  ToDo 2
+                </a>
               </li>
               <li className="nav-item">
                 <Link
@@ -242,6 +180,21 @@ export default function Navbar(props) {
           </div>
           <div className="nav-item2">
           <Link
+                      className={`dropdown-item  text-${
+                        props.Mode !== "light" ? "black" : "white"
+                      }`}
+                      to="/business"
+                    >
+                      Buisness ▼
+                    </Link>
+            
+            <div className="dropdown2">
+              <a href="#">Smart TVs</a>
+              <a href="#">Washing Machines</a>
+            </div>
+          </div>
+          <div className="nav-item2">
+          <Link
                       className={`dropdown-item bg-${props.Mode} text-${
                         props.Mode !== "light" ? "black" : "white"
                       }`}
@@ -314,6 +267,15 @@ export default function Navbar(props) {
           <div className="nav-item2">Offer Zone</div>
         </div>
       </nav>
+      {/* <nav className={`navbar bg-${props.Mode} `}>
+        <div className={`nav-container2 bg-${props.Mode} `}>
+        
+          <div className="nav-item2">
+          </div>
+          <div className="nav-item2">Flights</div>
+          <div className="nav-item2">Offer Zone</div>
+        </div>
+      </nav> */}
     </>
   );
 }
