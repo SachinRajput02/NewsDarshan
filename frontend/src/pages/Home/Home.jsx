@@ -7,9 +7,9 @@ import LoadingBar from 'react-top-loading-bar';
 import StoreContextProvider from '../../components/context/StoreContext';
 
 const Home = () => {
-  const apiKey = (import.meta.env.REACT_APP_NEWS_API)||'ac4fb85d740d4d0bb2261df0f804b096';
+  const apiKey = (import.meta.env.REACT_APP_NEWS_API)||'3bad10238c154c0896b9e75645aa6715';
   // const apiKey = (import.meta.env.REACT_APP_NEWS_API);
-  const pageSize = 3;
+  const pageSize = 50;
   const [progress, setProgress] = useState(0);
 
   return (
